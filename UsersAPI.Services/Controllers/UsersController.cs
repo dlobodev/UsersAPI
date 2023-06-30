@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UsersAPI.Services.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
@@ -11,6 +12,7 @@ namespace UsersAPI.Services.Controllers
         /// Criar conta de usuário
         /// </summary>
         /// <returns></returns>
+        [AllowAnonymous]
         [HttpPost]
         public IActionResult Add()
         {
